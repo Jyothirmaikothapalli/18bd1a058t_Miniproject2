@@ -76,7 +76,13 @@ async function report_issue(agent)
     var myobj = { username:u_name, issue:issue_val,status:status,time_date:time_date,trouble_ticket:trouble_ticket };
 
         await client.db("chatbot").collection("issues").insertOne(myobj);
+     if(isuue_val<5){
      await agent.add("The issue reported is: "+ val +"\nThe ticket number is: "+trouble_ticket);
+    }
+    else{
+      agent.add("invalid");
+    }
+    }
     }
 
 //trying to load rich response
